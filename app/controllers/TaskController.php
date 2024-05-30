@@ -28,7 +28,26 @@ class TaskController {
         require_once "app/views/tasks/form.php";
         require_once "app/views/footer.php";
 
+    }
 
+    public function createTask() {
+        // Check if all required POST parameters are set
+        /*if (!isset($_POST["task_name"]) || !isset($_POST["task_descrip"]) || !isset($_POST["user_id"])) {
+            die("Missing required POST parameters.");
+        }*/
+
+
+        $task = new Task();
+
+        //$task->get_task_id($_GET["task_id"]);
+        $task->set_task_name($_POST["task_name"]);
+        $task->set_task_description($_POST["task_descrip"]);
+        $task->set_task_user_id($_POST["user_id"]);
+
+        $this->model->insertTask($task);
+
+        header ("location:?c=task");
+        exit;
     }
     
 }

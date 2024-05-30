@@ -90,5 +90,21 @@ class Task {
 
     }
 
+    public function insertTask(Task $task) {
+
+        
+        try{
+            $query = "INSERT INTO tasks(name, descrip, created, updated, user_id) VALUES (?, ?, NOW(), NOW(), ?);";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute(array(
+                $task->get_task_name(),
+                $task->get_task_description(),
+                $task->get_task_user_id()
+            ));
+        } catch(exception $e) {
+            die($e->getMessage());
+    }
+}
+
     
 }
