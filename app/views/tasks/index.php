@@ -24,6 +24,7 @@
               <th>Fecha creación</th>
               <th>Fecha actualización</th>
               <th>ID de Usuario</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -34,7 +35,7 @@
                 exit;
             }
 
-
+//Listar las tareas
               foreach ($tasks as $task) {
                 echo "<tr>";
                 echo "<td>{$task->id}</td>";
