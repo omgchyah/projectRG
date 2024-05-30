@@ -44,6 +44,7 @@
                 echo "<td>{$task->created}</td>";
                 echo "<td>{$task->updated}</td>";
                 echo "<td>{$task->user_id}</td>";
+                echo "<td>Editar | Eliminar</td>";
                 echo "</tr>";
             }
             
