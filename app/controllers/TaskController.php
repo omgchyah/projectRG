@@ -21,4 +21,14 @@ class TaskController {
         require_once "app/views/footer.php";
 
     }
+
+    public function FormCreate() {
+
+        require_once "app/views/header.php";
+        require_once "app/views/tasks/form.php";
+        require_once "app/views/footer.php";
+
+
+    }
+    
 }
