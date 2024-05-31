@@ -73,6 +73,31 @@ class Task {
         return $this->task_user_id;
     }
 
+    public function getAll($id) {
+        try {
+            $query = $this->pdo->query("SELECT * FROM tasks WHERE id=?;");
+            $query->execute(array($id));
+            $r = $query->fetch(PDO::FETCH_OBJ);
+            $task = new Task();
+            $task->set_task_id($r->id);
+            $task->set_task_name($r->name);
+            $task->set_task_description($r->descrip);
+            $task->set_task_status($r->status);
+            $task->set_task_created_at($r->created);
+            $task->set_task_updated_at($r->updated);
+            $task->set_task_user_id($r->user_id);
+            
+            /*
+            $query = $this->pdo->prepare("SELECT SUM(tasks) as Number_tasks FROM tasks;");
+            $query->execute();
+            return $query->fetch(PDO::FETCH_OBJ);
+            */
+
+        } catch(Exception $e) {
+        }
+
+    }
+
 
     public function getTasks() {
         try {

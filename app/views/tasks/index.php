@@ -10,10 +10,11 @@
   </div>
 
   <div><a class="btn btn-primary btn-flat" href="?c=task&a=FormCreate"><i class="fa fa-lg fa-plus"></i></a>
+  </div>
   
-  <a class="btn btn-info btn-flat" href="#"><i class="fa fa-lg fa-refresh"></i></a>
+
   
-  <a class="btn btn-warning btn-flat" href="#"><i class="fa fa-lg fa-trash"></i></a></div>
+
 
 </div>
 <div class="row">
@@ -41,7 +42,7 @@
                 exit;
             }
 
-//Listar las tareas
+              //Listar las tareas
               foreach ($tasks as $task) {
                 echo "<tr>";
                 echo "<td>{$task->id}</td>";
@@ -51,7 +52,14 @@
                 echo "<td>{$task->created}</td>";
                 echo "<td>{$task->updated}</td>";
                 echo "<td>{$task->user_id}</td>";
-                echo "<td>Editar | Eliminar</td>";
+                echo "<td>
+                  <a class='btn btn-info btn-flat' href='?c=task&a=FormUpdate&id=<=r->$task->id?>'>
+                  <i class='fa fa-lg fa-refresh'></i>
+                  </a>
+                  <a class='btn btn-warning btn-flat' href='#'><i class='fa fa-lg fa-trash'></i>
+                  </a></div>
+                
+                </td>";
                 echo "</tr>";
             }
             
